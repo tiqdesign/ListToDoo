@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ListToDoo.Tabs.Tab3"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controller="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+    xmlns:model="clr-namespace:ListToDoo.Models"
+    BackgroundColor="#222831"
+    Visual="Material">
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView
+                x:Name="lv_todo"
+                Margin="10,10,10,10"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsBusy}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SelectionMode="None"
+                SeparatorColor="#d65a31"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="OnDelete"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Sil" />
+                                <MenuItem
+                                    Clicked="ClipBoard"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Kopyala" />
+                            </ViewCell.ContextActions>
+                            <Frame
+                                Margin="4,4,4,4"
+                                BackgroundColor="#eeeeee"
+                                BorderColor="LightGray"
+                                CornerRadius="10"
+                                HasShadow="True">
+                                <StackLayout>
+
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label
+                                            Grid.Column="0"
+                                            Margin="0,0,10,0"
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding Title}"
+                                            TextColor="#d65a31" />
+                                        <BoxView
+                                            x:Name="bv_pri"
+                                            Grid.Column="1"
+                                            CornerRadius="20"
+                                            HeightRequest="2"
+                                            HorizontalOptions="FillAndExpand"
+                                            MinimumHeightRequest="2"
+                                            Color="{Binding Priority}" />
+                                    </Grid>
+
+                                    <controller:CheckBox
+                                        x:Name="ch_event"
+                                        Checked="{Binding IsDone}"
+                                        CheckedChanged="Ch_event_CheckedChanged"
+                                        CheckedText="{Binding Body}"
+                                        DefaultText="Boş"
+                                        FontSize="15"
+                                        UncheckedText="{Binding Body}" />
+
+
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="btn_add"
+                Margin="0,0,20,20"
+                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="#d65a31"
+                Clicked="Btn_add_OnClicked"
+                CornerRadius="30"
+                FontSize="30"
+                HeightRequest="60"
+                Text="+"
+                TextColor="#eeeeee"
+                WidthRequest="60" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

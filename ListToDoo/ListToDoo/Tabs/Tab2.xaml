@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ListToDoo.Tabs.Tab2"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:car="clr-namespace:CarouselView;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+    xmlns:model="clr-namespace:ListToDoo.Models"
+    BackgroundColor="#222831"
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
+    <controls:PullToRefreshLayout
+        x:Name="pl_refresh"
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsBusy}"
+        RefreshColor="#d65a31"
+        RefreshCommand="{Binding RefreshCommand}">
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        Aspect="AspectFill"
+                        HeightRequest="200"
+                        HorizontalOptions="FillAndExpand"
+                        Source="https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940"
+                        VerticalOptions="FillAndExpand" />
+
+                    <Frame
+                        Grid.RowSpan="2"
+                        Margin="20,150,20,20"
+                        BackgroundColor="#d65a31"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <StackLayout>
+                            <StackLayout>
+                                <Label
+                                    x:Name="mail"
+                                    Margin="20,10,20,20"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    TextColor="#eeeeee" />
+                                <Label
+                                    x:Name="lb_progress"
+                                    Margin="20,0,20,0"
+                                    FontSize="15"
+                                    HorizontalTextAlignment="Start"
+                                    TextColor="#eeeeee" />
+                                <ProgressBar
+                                    x:Name="progress"
+                                    Margin="20,10,20,10"
+                                    BackgroundColor="White"
+                                    Opacity="1"
+                                    Progress="0.6"
+                                    ProgressColor="#222831" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Entry
+                                    x:Name="e_name"
+                                    BackgroundColor="Transparent"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Start"
+                                    Placeholder="İsim Soyisim"
+                                    Text="{Binding fullName}"
+                                    TextChanged="E_name_OnTextChanged"
+                                    TextColor="#eeeeee" />
+                                <Entry
+                                    x:Name="e_age"
+                                    BackgroundColor="Transparent"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Start"
+                                    Placeholder="Yaş"
+                                    Text="{Binding DateOfBirth}"
+                                    TextChanged="E_name_OnTextChanged"
+                                    TextColor="#eeeeee" />
+                                <Entry
+                                    x:Name="e_def"
+                                    BackgroundColor="Transparent"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Start"
+                                    Placeholder="Açıklama"
+                                    Text="{Binding Definition}"
+                                    TextChanged="E_name_OnTextChanged"
+                                    TextColor="#eeeeee" />
+                                <Button
+                                    x:Name="btn_kaydet"
+                                    BackgroundColor="Transparent"
+                                    Clicked="Btn_kaydet_OnClicked"
+                                    Text="Kaydet"
+                                    VerticalOptions="End" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </controls:PullToRefreshLayout>
+</ContentPage>

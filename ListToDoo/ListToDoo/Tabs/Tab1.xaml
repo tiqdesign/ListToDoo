@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ListToDoo.Tabs.Tab1"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controller="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+    xmlns:model="clr-namespace:ListToDoo.Models"
+    x:Name="ReminderPage"
+    BackgroundColor="#222831"
+    Visual="Material">
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView
+                x:Name="lv_todo"
+                Margin="10,10,10,10"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                RowHeight="130"
+                SelectionMode="None"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="OnDelete"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Sil" />
+                                <MenuItem
+                                    Clicked="ClipBoard"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Kopyala" />
+                            </ViewCell.ContextActions>
+                            <Frame
+                                Margin="4,4,4,4"
+                                BackgroundColor="#EEEEEE"
+                                CornerRadius="10"
+                                HasShadow="True">
+                                <StackLayout>
+                                    <Label
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}"
+                                        TextColor="#d65a31" />
+                                    <Label
+                                        FontSize="15"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Title}"
+                                        TextColor="#222831" />
+                                    <Label
+                                        FontSize="15"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Body}"
+                                        TextColor="#222831" />
+                                    <Label
+                                        FontSize="12"
+                                        HorizontalTextAlignment="End"
+                                        Text="{Binding Time, StringFormat='Saat: {0}'}"
+                                        TextColor="#222831" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="btn_add"
+                Margin="0,0,20,20"
+                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="#d65a31"
+                Clicked="Btn_add_OnClicked"
+                CornerRadius="30"
+                FontSize="30"
+                HeightRequest="60"
+                Text="+"
+                TextColor="#eeeeee"
+                WidthRequest="60" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

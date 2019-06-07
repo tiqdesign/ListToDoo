@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="ListToDoo.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:ListToDoo"
+    xmlns:tabs="clr-namespace:ListToDoo.Tabs"
+    xmlns:tabs1="clr-namespace:ListToDoo.Tabs;assembly=ListToDoo"
+    android:TabbedPage.BarItemColor="#eeeeee"
+    android:TabbedPage.BarSelectedItemColor="#d65a31"
+    android:TabbedPage.IsSmoothScrollEnabled="True"
+    android:TabbedPage.IsSwipePagingEnabled="True"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="#222831"
+    CurrentPageChanged="MainPage_OnCurrentPageChanged"
+    NavigationPage.HasBackButton="False"
+    Visual="Material">
+    <TabbedPage.ToolbarItems>
+
+        <ToolbarItem
+            x:Name="btn_about"
+            Clicked="Btn_about_OnClicked"
+            Order="Secondary"
+            Priority="0"
+            Text="Hakkımızda" />
+        <ToolbarItem
+            x:Name="btn_done"
+            Clicked="Btn_done_OnClicked"
+            Order="Secondary"
+            Priority="1"
+            Text="Tamamlanmış Notlar" />
+        <ToolbarItem
+            Clicked="MenuItem_OnClicked"
+            Order="Secondary"
+            Priority="2"
+            Text="Çıkış Yap" />
+
+    </TabbedPage.ToolbarItems>
+
+
+    <tabs1:Tab3 Title="Notlar" Icon="list.png" />
+    <tabs1:Tab1 Title="Hatırlatmalar" Icon="calendar.png" />
+    <tabs1:Tab2 Title="Profil" Icon="user.png" />
+
+
+</TabbedPage>
