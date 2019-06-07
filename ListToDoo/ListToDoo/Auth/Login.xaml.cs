@@ -75,5 +75,16 @@ namespace ListToDoo.Auth
             base.OnBackButtonPressed();
             return true;
         }
+
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            //Animasyonlardan sonra giriş yapmak için gerekli kısımlar gelicek.
+   
+            lb_go.FadeTo(0, 500, Easing.Linear);
+            tb_mail.FadeTo(1, 500, Easing.BounceOut);
+            tb_password.FadeTo(1, 500, Easing.BounceOut);
+            btn_login.FadeTo(1, 500, Easing.BounceOut);
+
+        }
     }
 }

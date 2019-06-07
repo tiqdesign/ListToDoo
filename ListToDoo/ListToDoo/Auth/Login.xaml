@@ -12,16 +12,18 @@
 
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+
 
             </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0" Margin="0,20,0,0">
+            <StackLayout
+                Grid.Row="0"
+                Margin="0,80,0,0"
+                VerticalOptions="CenterAndExpand">
                 <Image
                     HeightRequest="100"
                     HorizontalOptions="CenterAndExpand"
                     Source="LTD.png"
-                    VerticalOptions="CenterAndExpand"
                     WidthRequest="100" />
                 <Label
                     FontAttributes="Bold"
@@ -29,17 +31,28 @@
                     HorizontalOptions="CenterAndExpand"
                     HorizontalTextAlignment="Center"
                     Text="ListToDoo"
-                    TextColor="#eeeeee"
-                    VerticalOptions="Center" />
+                    TextColor="#eeeeee" />
+                <Label
+                    x:Name="lb_go"
+                    FontSize="25"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="Hadi Başlayalım!"
+                    TextColor="#d65a31">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
 
-            <StackLayout Grid.Row="1" Margin="0,20,0,0">
+            <StackLayout Grid.Row="1">
                 <Entry
                     x:Name="tb_mail"
                     Margin="20,0,20,0"
                     BackgroundColor="Transparent"
                     FontSize="15"
                     HorizontalOptions="FillAndExpand"
+                    Opacity="0"
                     Placeholder="Email: "
                     PlaceholderColor="#eeeeee"
                     TextColor="#eeeeee" />
@@ -50,6 +63,7 @@
                     FontSize="15"
                     HorizontalOptions="FillAndExpand"
                     IsPassword="True"
+                    Opacity="0"
                     Placeholder="Şifre: "
                     PlaceholderColor="#eeeeee"
                     TextColor="#eeeeee" />
@@ -61,22 +75,9 @@
                     CornerRadius="25"
                     FontSize="20"
                     HeightRequest="50"
+                    Opacity="0"
                     Text="GİRİŞ YAP"
                     TextColor="#d65a31" />
-            </StackLayout>
-
-            <StackLayout Grid.Row="2" Margin="20,20,20,0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                </Grid>
-
             </StackLayout>
 
 
