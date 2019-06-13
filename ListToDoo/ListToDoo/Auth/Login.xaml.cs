@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using ListToDoo.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +16,7 @@ namespace ListToDoo.Auth
         public Login()
         {
             InitializeComponent();
+           
         }
 
         private async void Btn_login_Clicked(object sender, EventArgs e)
@@ -86,5 +88,7 @@ namespace ListToDoo.Auth
             btn_login.FadeTo(1, 500, Easing.BounceOut);
 
         }
+
+
     }
 }

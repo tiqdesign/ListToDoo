@@ -13,7 +13,9 @@
   <ItemGroup>
     <PackageReference Include="CardsView" Version="2.1.2" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="Codon.UndoModel" Version="2.2.1" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
@@ -25,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 
   <ItemGroup>
