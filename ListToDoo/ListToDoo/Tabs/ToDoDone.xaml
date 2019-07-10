@@ -49,8 +49,10 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="0.4*" />
+                                            <ColumnDefinition Width="0.1*" />
                                         </Grid.ColumnDefinitions>
+
                                         <Label
                                             Grid.Column="0"
                                             Margin="0,0,10,0"
@@ -58,14 +60,26 @@
                                             HorizontalTextAlignment="Start"
                                             Text="{Binding Title}"
                                             TextColor="#d65a31" />
+
+                                        <Label
+                                            Grid.Column="1"
+                                            Margin="0,0,10,0"
+                                            FontSize="12"
+                                            HorizontalOptions="End"
+                                            HorizontalTextAlignment="Start"
+                                            Text="Öncelik:"
+                                            TextColor="#222831"
+                                            VerticalOptions="CenterAndExpand" />
+
                                         <BoxView
                                             x:Name="bv_pri"
-                                            Grid.Column="1"
+                                            Grid.Column="2"
                                             CornerRadius="20"
                                             HeightRequest="2"
-                                            HorizontalOptions="FillAndExpand"
+                                            HorizontalOptions="StartAndExpand"
                                             MinimumHeightRequest="2"
                                             Color="{Binding Priority}" />
+
                                     </Grid>
 
                                     <controls:CheckBox
